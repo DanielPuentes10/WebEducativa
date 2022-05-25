@@ -1,0 +1,72 @@
+<% include partials/_header %>
+<style>
+
+
+</style>
+<div class="container mt-5">
+  <div class="row" >
+    <div class="col-md-7" style="align-items: flex-start;">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>IdMateria</td>
+            <td>IdNota</td>
+            <td>Nombre</td>
+            <td>CodEstudiantil</td>
+            <td>IdProfesor</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for(var i = 0; i< data.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+          
+                <td><%= data[i].IdNota %></td>
+                <td><%= data[i].Nombre %></td>
+                <td><%= data[i].CodEstudiantil %></td>
+                <td><%= data[i].IdProfesor %></td>
+                <td>
+                  <a href="/update/<%= data[i].IdMateria %>" class="btn btn-info">Editar</a>
+                  <a href="/delete/<%= data[i].IdMateria %>" class="btn btn-danger">Borrar</a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+     <!-- <div  class="col-sm-5" style="align-items: flex-end;" >-->
+        <div class="container-fluid"> 
+       <div class="card-body">
+       <!-- <div class="col-sm-6" style="text-align: right;" >-->
+
+        <form style="text-align: right; " width="1000" action="/add" method="POST">
+          <div class="form-group" >
+            <input type="text" name="IdMateria" placeholder="IdMateria" class="form-control" autofocus>
+          </div>
+          <div class="form-group" >
+            <input type="text" name="IdNota" placeholder="IdNota" class="form-control" autofocus>
+          </div>
+          <div class="form-group" >
+            <input type="text" name="Nombre" placeholder="Nombre" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="CodEstudiantil" placeholder="CodEstudiantil" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="IdProfesor" placeholder="IdProfesor" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Guardar Matricula
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>
+

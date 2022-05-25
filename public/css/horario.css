@@ -1,0 +1,13 @@
+body{
+    background-color:aquamarine;
+}
+table th{
+    width: 10em;
+    padding:1em;
+}
+table{
+    border-collapse: collapse;
+}
+tr:nth-of-type(1) > th{
+    background-color: chocolate;
+}
